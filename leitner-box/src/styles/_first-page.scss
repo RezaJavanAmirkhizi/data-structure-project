@@ -9,7 +9,7 @@
     padding: 3rem;
     
     h1, p{
-        color: $BRAVA-HOME®-5-hex;
+        color: #F2F2F2;
         font-family: 'Noto Naskh Arabic', serif;
     }
 
@@ -25,20 +25,20 @@
 
 .link{
     text-decoration: none;
-    color: $BRAVA-HOME®-5-hex;
+    color: #F2F2F2;
     font-family: 'Noto Naskh Arabic', serif;
     font-size: 20px;
     padding: 3px 70px;
     border-radius: 20px;
     outline: none;
-    border: 3px solid $BRAVA-HOME®-3-hex;
+    border: 3px solid #949FA6;
     cursor: pointer;
     background-color: transparent;
     transition: background ease .75s;
 
     
     &:hover{
-        background-color: $BRAVA-HOME®-3-hex;
+        background-color: #949FA6;
     }
 }
 

@@ -1,0 +1,47 @@
+.button0 {
+  background-color: transparent;
+  color: #f2f2f2;
+  border: 3px solid #949fa6;
+  border-radius: 44px;
+  font-family: "Noto Naskh Arabic", serif;
+  margin: 0px -2px -1px;
+  font-size: 1.5rem;
+}
+.container0 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+.h1 {
+  text-align: center;
+  direction: rtl;
+  margin: 50px 0px 20px;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+}
+.paragraph {
+  font-size: 1rem;
+  color: #f2f2f2;
+  text-align: center;
+  margin-bottom: 100px;
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.education,
+.exam {
+  border: 3px solid #949fa6;
+  width: 500px;
+  height: 500px;
+  margin-top: 60px 0px;
+  border-radius: 10%;
+  display: grid;
+}
+.title {
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  text-align: center;
+  margin: 10px 0px 0px;
+  font-weight: bold;
+  font-size: 3rem;
+}
