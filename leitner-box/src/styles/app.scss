@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap");
 
 /* Color Theme Swatches in Hex */
-$BRAVA-HOME®-1-hex: #232426;
-$BRAVA-HOME®-2-hex: #666D73;
-$BRAVA-HOME®-3-hex: #949FA6;
-$BRAVA-HOME®-4-hex: #363E40;
-$BRAVA-HOME®-5-hex: #F2F2F2;
+//  #232426;
+// #666D73;
+//  #949FA6;
+//  #363E40;
+//  #F2F2F2;
 
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    background-color: $BRAVA-HOME®-4-hex;
+  background-color: #363e40;
 }
 
-
-@import '../styles/first-page';
+@import "../styles/first-page";
+@import "../styles/learn";
