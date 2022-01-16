@@ -15,7 +15,7 @@ class Learn extends Component {
                     <div className="exam">
                         <h3 className="title">آزمون</h3>
                         <p className="paragraph">آزمون جهت اطمینان از یادگیری لغات به وسیله سوالات 4 گزینه ای</p>
-                        <Link className="start" to="/Learn">شروع</Link>
+                        <Link className="start" to="/Learn/Exam">شروع</Link>
                     </div>
                 </div>
             </div>
