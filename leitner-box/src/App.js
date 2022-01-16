@@ -14,6 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<FirstPage words = {words} />}></Route>
         <Route exact path="/Learn" element={<Learn />}></Route>
+         
       </Routes>
 
     </div>
