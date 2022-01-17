@@ -1,22 +1,20 @@
+import moment from 'moment';
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const Learn = () => {
+const Learn = (props) => {
 
-    const[words, setWords] = useState(null);
+    const[words, setWords] = useState(props.words);
     const[todayWords, setTodayWords] = useState([]);
     
     
 
     const start = async () => {
 
-        setWords(JSON.parse(localStorage.getItem('words')));
-    
         let count = 0;
         const nullWords = [];
 
         while (count < 30) {
-            
             if(nullWords.length === 0){
                 for (let i = 0; i < words.length; i++) {
                     if(words[i].nextDate === null) {
@@ -29,10 +27,19 @@ const Learn = () => {
             count++;
         }
 
+        const today = moment().format("YYYY-MM-DD");
+        console.log(today);
+
+        for(let i = 0; i < words.length; i++) {
+            if(today >= words[i].nextDate){
+                setTodayWords(...todayWords, todayWords.push(words[i]));
+            }
+        }
+
+        
         console.log(todayWords);
          
     }
-
     const test = () => {
         console.log(todayWords);
     }
@@ -44,12 +51,12 @@ const Learn = () => {
                 <div className="education">
                     <h3 className="title">آموزش</h3>
                     <p className="paragraph">آموزش روزانه 30 لغت انگلیسی به همراه ترجمه فارسی</p>
-                    <Link onClick={() => start()} className="start" to="/Learn/Education">شروع</Link>
+                    <Link onClick={() => start()} className="start" to="/Learn">شروع</Link>
                 </div>
                 <div className="exam">
                     <h3 className="title">آزمون</h3>
                     <p className="paragraph">آزمون جهت اطمینان از یادگیری لغات به وسیله سوالات 4 گزینه ای</p>
-                    <Link onClick={() => test()} className="start" to="/Learn/Exam">شروع</Link>
+                    <Link onClick={() => test()} className="start" to="/Learn">شروع</Link>
                 </div>
             </div>
         </div>
