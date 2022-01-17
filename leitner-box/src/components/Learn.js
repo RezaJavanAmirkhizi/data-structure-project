@@ -58,7 +58,8 @@ const Learn = (props) => {
             </div>
         </div>
         );
-        }
+    
+}
     
     
 
