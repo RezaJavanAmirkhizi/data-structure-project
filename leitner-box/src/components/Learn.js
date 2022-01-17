@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const Learn = (props) => {
 
     const[words, setWords] = useState(props.words);
-    const[todayWords, setTodayWords] = useState([]);
+    
     
     
 
@@ -23,21 +23,17 @@ const Learn = (props) => {
                 }
             }
 
-            setTodayWords(...todayWords, todayWords.push(nullWords.shift()));
+            props.setTodayWords(...props.todayWords, props.todayWords.push(nullWords.shift()));
             count++;
         }
 
         const today = moment().format("YYYY-MM-DD");
-        console.log(today);
 
         for(let i = 0; i < words.length; i++) {
             if(today >= words[i].nextDate){
-                setTodayWords(...todayWords, todayWords.push(words[i]));
+                props.setTodayWords(...props.todayWords, props.todayWords.push(words[i]));
             }
         }
-
-        
-        console.log(todayWords);
          
     }
 
