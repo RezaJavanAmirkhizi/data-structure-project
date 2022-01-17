@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import Words from '../src/data/words';
 import Learn from '../src/components/Learn'
+import Exam from './components/Exam';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<FirstPage words = {words} />}></Route>
         <Route exact path="/Learn" element={<Learn />}></Route>
+        <Route exact path="/Learn/Exam" element={<Exam />}></Route>
          
       </Routes>
 
