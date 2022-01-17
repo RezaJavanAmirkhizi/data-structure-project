@@ -11,7 +11,6 @@ const Learn = () => {
     const start = async () => {
 
         setWords(JSON.parse(localStorage.getItem('words')));
-        console.log(words);
     
         let count = 0;
         const nullWords = [];

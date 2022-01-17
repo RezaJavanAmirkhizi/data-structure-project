@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Question from './Question';
 
-class Exam extends Component {
-    render() {
+const Exam = () => {
 
-        return (
-            <div>
-                <div className="examContainer">
-                    <Question Word="test" one="یک" two="دو" three="سه" four="چهار" />
-                </div>
+    const [controller, setController] = useState(0);
+    const [words, setWords] = useState(JSON.parse(localStorage.getItem(('todayWords'))));
+    
+    return (
+        <div>
+            <div className="examContainer">
+                <Question Word={words[controller]} answer={words.map((word) => word.persian)} setController = {setController}/>
             </div>
-        );
-    }
+        </div>
+    );
+    
 }
 
 export default Exam;
