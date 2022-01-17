@@ -4,7 +4,10 @@ import {Link} from 'react-router-dom';
 const FirstPage = (props) => {
 
     const storeData = () =>{
-        localStorage.setItem('words', JSON.stringify(props.words));
+        if(JSON.parse(localStorage.getItem('words')) === null) {
+            localStorage.setItem('words', JSON.stringify(props.words));
+        }
+        props.setWords(JSON.parse(localStorage.getItem('words')));
     }
 
     return (
