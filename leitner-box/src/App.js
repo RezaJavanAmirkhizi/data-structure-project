@@ -9,12 +9,13 @@ import Exam from './components/Exam';
 function App() {
 
   const[words, setWords] = useState(Words());
+  const[todayWords, setTodayWords] = useState([]);
 
   return (
     <div className="pages">
       <Routes>
         <Route exact path="/" element={<FirstPage words = {words} setWords={setWords} />}></Route>
-        <Route exact path="/Learn" element={<Learn words = {words} />}></Route>
+        <Route exact path="/Learn" element={<Learn words = {words} todayWords = {todayWords} setTodayWords = {setTodayWords} />}></Route>
         <Route exact path="/Learn/Exam" element={<Exam />}></Route>
          
       </Routes>
