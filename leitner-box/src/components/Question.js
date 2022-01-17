@@ -9,20 +9,20 @@ class Question extends Component {
                 <h1>test</h1>
                 <hr  />   
                 <div className='choosebox'>
-                    <label class="labl">
+                    <label className="labl">
                         <input type="radio" name="radioname" value="another" />
                         <div>Small</div>
                     </label>
-                    <label class="labl">
+                    <label className="labl">
                         <input type="radio" name="radioname" value="another" />
                         <div>Small</div>
                     </label>
                     <br/>
-                    <label class="labl">
+                    <label className="labl">
                         <input type="radio" name="radioname" value="another" />
                         <div>Small</div>
                     </label>
-                    <label class="labl">
+                    <label className="labl">
                         <input type="radio" name="radioname" value="another" />
                         <div>Small</div>
                     </label>
