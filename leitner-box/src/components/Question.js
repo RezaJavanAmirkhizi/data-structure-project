@@ -7,7 +7,7 @@ class Question extends Component {
         return (
             <div className='questionContainer'>
                 <h1>test</h1>
-                <hr  />   
+                <hr  />
                 <div className='choosebox'>
                     <label className="labl">
                         <input type="radio" name="radioname" value="another" />
@@ -28,8 +28,8 @@ class Question extends Component {
                     </label>
                 </div> 
                 <div className='buttonsDiv'>
-                    <Link className='buttons' to="/Learn/Exam">قبلی</Link>
-                    <Link className='buttons' to="/Learn/Exam">بعدی</Link>
+                    <button className='buttons'>قبلی</button>
+                    <button className='buttons'>بعدی</button>
                 </div>
                 
             </div>
