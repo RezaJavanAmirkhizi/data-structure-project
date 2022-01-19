@@ -37,7 +37,7 @@
     border-radius: 17px;
     font-size: 2rem;
     color: #fff;
-    font-family: 'Noto Naskh Arabic', serif;
+    direction: ltr;
   }
 }
 .labl > input {
@@ -46,7 +46,7 @@
   position: absolute; /* Remove input from document flow */
 }
 
-.labl > input:hover + div {
+.labl > input:checked + div {
   /* (RADIO CHECKED) DIV STYLES */
   transition: ease 1s;
   background-color: #949fa6;
