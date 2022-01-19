@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<FirstPage words = {words} setWords={setWords} />}></Route>
         <Route exact path={"/secondpage"} element={<SecondPage/>}/>
-        <Route exact path={"/secondpage/exam"} element={<Exam />}></Route>
+        <Route exact path={"/secondpage/exam"} element={<Exam words={words}/>}></Route>
         <Route path='/secondpage/learn' element={<Learn words={words}/>}/>
       </Routes>
 

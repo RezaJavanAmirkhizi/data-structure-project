@@ -5,7 +5,7 @@ function Question(props) {
     const [answers, setAnswers] = useState([]);
     const [todayWords, setTodayWords] = useState(props.todayWords)
     const [eWord, setEWord] = useState();
-    const [controller, setController] = useState(props.controller)
+    const [controller, setController] = useState(0)
 
 
     const NOP = (type) => {
@@ -13,15 +13,13 @@ function Question(props) {
             setController(controller + 1);
             setEWord(todayWords[controller + 1].english);
         }
-        else if (type === 'prev') {
-            setController(controller - 1);
-            setEWord(todayWords[controller - 1].english);
-        }
+        // else if (type === 'prev') {
+        //     setController(controller - 1);
+        //     setEWord(todayWords[controller - 1].english);
+        // }
     }
 
     useEffect(() => {
-
-        setTodayWords(props.todayWords)
         setEWord(todayWords[controller].english);
 
         let currentNum = Math.floor(Math.random() * 4) + 1;
@@ -35,9 +33,6 @@ function Question(props) {
         console.log(value);
         value.splice(currentNum, 0, todayWords[controller].persian);
         setAnswers(value)
-
-        console.log(answers);
-
     }, [])
 
     useEffect(() => {
@@ -53,7 +48,6 @@ function Question(props) {
         value.splice(currentNum, 0, todayWords[controller].persian);
         setAnswers(value)
 
-        console.log(answers);
 
 
     },[controller])
@@ -75,10 +69,10 @@ function Question(props) {
                 })}
             </div>
             <div className='buttonsDiv'>
-                {controller === 0 ? ''
+                {/* {controller === 0 ? ''
                     :
                     <button onClick={() => NOP('prev')} className='buttons'>قبلی</button>
-                }
+                } */}
                 {controller === (todayWords.length - 1) ? ''
                     :
                     <button onClick={() => NOP('next')} className='buttons'>بعدی</button>
