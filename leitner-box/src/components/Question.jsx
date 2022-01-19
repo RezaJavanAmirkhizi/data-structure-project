@@ -11,11 +11,11 @@ function Question(props) {
     const NOP = (type) => {
         if (type === 'next') {
             setController(controller + 1);
-            setEWord(todayWords[controller].english);
+            setEWord(todayWords[controller + 1].english);
         }
         else if (type === 'prev') {
             setController(controller - 1);
-            setEWord(todayWords[controller].english);
+            setEWord(todayWords[controller - 1].english);
         }
     }
 
@@ -65,9 +65,12 @@ function Question(props) {
             <div className='choosebox'>
                 {answers.map((answer, index) => {
                     return <Fragment key={index}>
-                        <div style={{ color: 'red' }}>
-                            {answer}
-                        </div>
+                       <label className="labl">
+                            <input type="radio" name="radioname" value={index} />
+                            <div>
+                                {answer}
+                            </div>
+                        </label>
                     </Fragment>
                 })}
             </div>

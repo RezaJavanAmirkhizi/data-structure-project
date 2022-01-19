@@ -37,7 +37,7 @@ const Exam = (props) => {
     return (
         <div>
             <div className="examContainer">
-                <Question todayWords={todayWords} controller={controller} setController={setController} />
+                <Question todayWords={todayWords}/>
             </div>
         </div>
     );
