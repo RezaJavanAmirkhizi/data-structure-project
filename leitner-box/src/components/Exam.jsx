@@ -4,7 +4,7 @@ import Question from './Question';
 
 const Exam = (props) => {
 
-     const [controller, setController] = useState(0);
+    const [controller, setController] = useState(0);
 
     const[todayWords, setTodayWords] = useState([]);
 
