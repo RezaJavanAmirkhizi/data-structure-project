@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, Fragment } from 'react';
 
 function Question(props) {
@@ -6,18 +5,18 @@ function Question(props) {
     const [answers, setAnswers] = useState([]);
     const [todayWords, setTodayWords] = useState(props.todayWords)
     const [eWord, setEWord] = useState();
-    const [controller, setController] = useState(0)
+    const [controller, setController] = useState(props.controller)
 
 
     const NOP = (type) => {
         if (type === 'next') {
             setController(controller + 1);
-            setEWord(todayWords[controller + 1].english);
+            setEWord(todayWords[controller].english);
         }
-        {/*else if (type === 'prev') {
+        else if (type === 'prev') {
             setController(controller - 1);
-            setEWord(todayWords[controller - 1].english);
-        }*/}
+            setEWord(todayWords[controller].english);
+        }
     }
 
     useEffect(() => {
@@ -57,7 +56,7 @@ function Question(props) {
         console.log(answers);
 
 
-    }, [controller])
+    },[controller])
 
     return (
         <div className='questionContainer'>
@@ -73,18 +72,18 @@ function Question(props) {
                 })}
             </div>
             <div className='buttonsDiv'>
-                {/* {controller === 0 ? ''
+                {controller === 0 ? ''
                     :
                     <button onClick={() => NOP('prev')} className='buttons'>قبلی</button>
-                } */}
+                }
                 {controller === (todayWords.length - 1) ? ''
                     :
                     <button onClick={() => NOP('next')} className='buttons'>بعدی</button>
                 }
             </div>
+
         </div>
     );
 }
-
 
 export default Question;

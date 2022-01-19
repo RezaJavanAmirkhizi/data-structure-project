@@ -1,8 +1,10 @@
-import moment from 'moment';
 import React, { useState, useLayoutEffect } from 'react';
+import moment from 'moment';
 import Question from './Question';
 
 const Exam = (props) => {
+
+    const [controller, setController] = useState(0);
 
     const[todayWords, setTodayWords] = useState([]);
 
@@ -35,8 +37,7 @@ const Exam = (props) => {
     return (
         <div>
             <div className="examContainer">
-                <Question Word="bvbbv" />
-                <Question todayWords={todayWords}/>
+                <Question todayWords={todayWords} controller={controller} setController={setController} />
             </div>
         </div>
     );
