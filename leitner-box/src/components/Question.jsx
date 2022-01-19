@@ -5,21 +5,14 @@ function Question(props) {
     const [answers, setAnswers] = useState([]);
     const [todayWords, setTodayWords] = useState(props.todayWords)
     const [eWord, setEWord] = useState();
-    const [controller, setController] = useState(0)
-
-
-    const NOP = (type) => {
-        if (type === 'next') {
-            setController(controller + 1);
-            setEWord(todayWords[controller + 1].english);
-        }
-        // else if (type === 'prev') {
-        //     setController(controller - 1);
-        //     setEWord(todayWords[controller - 1].english);
-        // }
-    }
+    const [controller, setController] = useState(0);
+    const [currectAnswer, setCurrectAnswer] = useState(0);
+    const [curretCounter, setCurretCounter] = useState(0);
+    const [wrongCounter, setWrongCounter] = useState(0)
+    const [message, SetMessage] = useState('')
 
     useEffect(() => {
+
         setEWord(todayWords[controller].english);
 
         let currentNum = Math.floor(Math.random() * 4) + 1;
@@ -30,7 +23,6 @@ function Question(props) {
             value.push(todayWords[i].persian);
         }
 
-        console.log(value);
         value.splice(currentNum, 0, todayWords[controller].persian);
         setAnswers(value)
     }, [])
@@ -44,38 +36,80 @@ function Question(props) {
             value.push(todayWords[i].persian);
         }
 
-        console.log(value);
         value.splice(currentNum, 0, todayWords[controller].persian);
         setAnswers(value)
 
+        setCurrectAnswer(currentNum)
 
+    }, [controller])
 
-    },[controller])
+    const NOP = (type) => {
+        if (type === 'next') {
+            setController(controller + 1);
+            setEWord(todayWords[controller + 1].english);
+        }
+        /*else if (type === 'prev') {
+             setController(controller - 1);
+             setEWord(todayWords[controller - 1].english);
+         }*/
+    }
 
     return (
         <div className='questionContainer'>
-            <h1>{eWord}</h1>
+            <h1>{controller === (todayWords.length - 1) ? ''
+            : eWord
+            }</h1>
             <hr />
             <div className='choosebox'>
                 {answers.map((answer, index) => {
                     return <Fragment key={index}>
-                       <label className="labl">
+                        <label className="labl">
                             <input type="radio" name="radioname" value={index} />
-                            <div>
-                                {answer}
+                            <div onClick={() => {
+                                if (index === currectAnswer) {
+                                    setCurretCounter(curretCounter + 1)
+                                    SetMessage('correct')
+                                }
+                                else {
+                                    setWrongCounter(wrongCounter + 1)
+                                    SetMessage('wrong')
+                                }
+                                setTimeout((() => {
+                                    NOP('next')
+                                    SetMessage('')
+                                }), '1000')
+                            }}>
+                                {
+                                    controller === (todayWords.length - 1) ? ''
+                                        : answer
+                                }
                             </div>
                         </label>
                     </Fragment>
                 })}
+            </div>
+            <div className='messageStyle' style={{ color: 'white', fontSize: '30px' }}>
+                {message}
             </div>
             <div className='buttonsDiv'>
                 {/* {controller === 0 ? ''
                     :
                     <button onClick={() => NOP('prev')} className='buttons'>قبلی</button>
                 } */}
-                {controller === (todayWords.length - 1) ? ''
-                    :
-                    <button onClick={() => NOP('next')} className='buttons'>بعدی</button>
+                {controller === (todayWords.length - 1)
+                    ?
+                    <div>
+                        <span style={{color: 'green'}}>
+                            Currect Answers : {curretCounter}
+                        </span><br />
+                        <span style={{color: 'red'}}>
+                            Wrong Answers : {wrongCounter}
+                        </span><br />
+                        <span style={{color : 'white'}}>
+                            you answered around {((curretCounter / (curretCounter + wrongCounter)) * 100).toFixed(0)}% of the answers currectlly
+                        </span>
+                    </div>
+                    : ''
                 }
             </div>
 
