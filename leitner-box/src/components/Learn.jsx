@@ -33,34 +33,34 @@ export default function Learn(props) {
 
     return (
         <div>
-            <div className='titles' style={{ display: 'block' }}>
+            <div className='titles'>
                 {
-                    <div style={{ display: 'block', color: 'red' }}>
-                        <div className='rowStyle' style={{ display: 'inline-block', width: '10%' }}>
+                    <div className='head'>
+                        <div className='rowStyle'>
                             Row
                         </div>
-                        <div style={{ display: 'inline-block', width: '47%' }}>
+                        <div>
                             English
                         </div>
-                        <div style={{ display: 'inline-block', width: '20%' }}>
+                        <div>
                             Persian
                         </div>
                     </div>
                 }
-                <div style={{ display: 'block' }}>
+                <div>
                     {
                         <div>
                             {
                                 todayWords.map((item, index) => {
                                     return <Fragment key={index}>
-                                        <div style={{ dispaly: 'block' }}>
-                                            <div className='wordsContainer' style={{ display: 'inline-block', color: 'white', width: '10%' }}>
+                                        <div className='rows'>
+                                            <div className='wordsContainer'>
                                                 {index + 1}
                                             </div>
-                                            <div style={{ display: 'inline-block', width: '47%' }}>
+                                            <div>
                                                 {item.english}
                                             </div>
-                                            <div style={{ display: 'inline-block', width: '20%' }}>
+                                            <div>
                                                 {item.persian}
                                             </div>
                                         </div>
