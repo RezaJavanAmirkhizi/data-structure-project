@@ -29,6 +29,26 @@
 }
 @media only screen and (max-width: 1473px) {
   .titles {
+    margin: 100px;
+  }
+}
+@media only screen and (max-width: 1113px) {
+  .titles {
+    margin: 80px;
+  }
+}
+@media only screen and (max-width: 1072px) {
+  .titles {
+    margin: 60px;
+  }
+}
+@media only screen and (max-width: 1035px) {
+  .titles {
+    margin: 50px;
+  }
+}
+@media only screen and (max-width: 1013px) {
+  .titles {
     margin: 0px;
   }
 }
