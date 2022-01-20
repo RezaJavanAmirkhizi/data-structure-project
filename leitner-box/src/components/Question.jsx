@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import moment from 'moment';
 
 function Question(props) {
 
@@ -8,7 +9,7 @@ function Question(props) {
     const [controller, setController] = useState(0);
     const [currectAnswer, setCurrectAnswer] = useState(0);
     const [curretCounter, setCurretCounter] = useState(0);
-    const [message, SetMessage] = useState('')
+    const [message, SetMessage] = useState('');
 
     useEffect(() => {
 
@@ -24,13 +25,12 @@ function Question(props) {
         }
 
         value.splice(currentNum, 0, todayWords[controller].persian);
-        setAnswers(value)
+        setAnswers(value);
+        setCurrectAnswer(currentNum);
+
     }, [])
 
     useEffect(() => {
-
-        setEWord(todayWords[controller].english);
-
         let currentNum = Math.floor(Math.random() * 4);
         let mistakeNum = Math.floor(Math.random() * 25) + 1; //random number between 1 and 26
 
@@ -40,11 +40,15 @@ function Question(props) {
         }
         setCurrectAnswer(currentNum)
 
-        value.splice(currentNum, 0, todayWords[controller].persian);
-        setAnswers(value)
-        console.log(currentNum);
 
-        
+        value.splice(currentNum, 0, todayWords[controller].persian);
+        setAnswers(value);
+        setCurrectAnswer(currentNum);
+
+        if(controller === todayWords.length - 1){
+            props.changeWords(todayWords);
+        }
+
     }, [controller])
 
     const NOP = (type) => {
@@ -52,10 +56,29 @@ function Question(props) {
             setController(controller + 1);
             setEWord(todayWords[controller + 1].english);
         }
-        /*else if (type === 'prev') {
-             setController(controller - 1);
-             setEWord(todayWords[controller - 1].english);
-         }*/
+    }
+
+    const checkQuestion = (question) => {
+        if (question === answers[currectAnswer]) {
+            if (todayWords[controller].level === 0) {
+                todayWords[controller].level++;
+                todayWords[controller].nextDate = new moment().add(3, "days").format('YYYY-MM-DD');
+            }
+            else if (todayWords[controller].level === 1) {
+                todayWords[controller].level++;
+                todayWords[controller].nextDate = new moment().add(5, "days").format('YYYY-MM-DD');
+            }
+            else {
+                todayWords[controller].level++;
+                todayWords[controller].nextDate = new moment().add(15, "days").format('YYYY-MM-DD');
+            }
+
+        }
+        else {
+            todayWords[controller].nextDate = new moment().add(1, "days").format('YYYY-MM-DD');
+        }
+
+
     }
 
     return (
@@ -68,7 +91,7 @@ function Question(props) {
                 {answers.map((answer, index) => {
                     return <Fragment key={index}>
                         <label className="labl">
-                            <input type="radio" name="radioname" value={index} />
+                            <input type="radio" name="radioname" value={answer} />
                             <div onClick={() => {
                                 console.log(currectAnswer);
                                 if (index === currectAnswer) {
@@ -80,12 +103,12 @@ function Question(props) {
                                 }
                                 setTimeout((() => {
                                     NOP('next')
+                                    checkQuestion(answer);
                                     SetMessage('')
                                 }), '600')
                             }}>
                                 {
-                                    controller === (todayWords.length - 1) ? ''
-                                        : answer
+                                    controller === (todayWords.length - 1) ? '' : answer
                                 }
                             </div>
                         </label>
