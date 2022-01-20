@@ -3,17 +3,13 @@
   font-family: "Noto Naskh Arabic", serif;
   font-size: 20px;
   margin: 30px 280px;
-
-  div {
-    display: block;
-  }
 }
 .head {
   color: red;
   div {
     display: inline-block;
-    padding: 5px;
-    width: 30%;
+    padding: 0px;
+    width: 33%;
     text-align: center;
     border: 1.5px solid #949fa6;
   }
@@ -21,10 +17,12 @@
 .rows {
   div {
     display: inline-block;
-    width: 30%;
-    padding: 5px;
+    width: 33%;
     text-align: center;
     color: #f2f2f2;
     border: 1.5px solid #949fa6;
   }
+}
+.rows:nth-child(odd) {
+  background-color: #4e595c;
 }
