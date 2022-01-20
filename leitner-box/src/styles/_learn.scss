@@ -8,10 +8,10 @@
   color: red;
   div {
     display: inline-block;
-    padding: 0px;
     width: 33%;
     text-align: center;
     border: 1.5px solid #949fa6;
+    font-family: "Noto Naskh Arabic", serif;
   }
 }
 .rows {
@@ -21,8 +21,14 @@
     text-align: center;
     color: #f2f2f2;
     border: 1.5px solid #949fa6;
+    font-family: "Noto Naskh Arabic", serif;
   }
 }
 .rows:nth-child(odd) {
   background-color: #4e595c;
+}
+@media only screen and (max-width: 1473px) {
+  .titles {
+    margin: 0px;
+  }
 }
