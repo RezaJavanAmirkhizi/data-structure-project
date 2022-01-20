@@ -10,6 +10,7 @@ const FirstPage = (props) => {
             localStorage.setItem('words', JSON.stringify(props.words));
         }
         props.setWords(JSON.parse(localStorage.getItem('words')));
+        console.log(props.words);
     }
 
     return (
