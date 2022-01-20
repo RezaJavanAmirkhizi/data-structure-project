@@ -82,3 +82,16 @@
     background-color: #949fa6;
   }
 }
+
+.result{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+
+  span{
+    font-size: 24px;
+    font-family: "Noto Naskh Arabic", serif;
+  }
+}

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment} from 'react';
+import {useNavigate} from 'react-router-dom';
 import moment from 'moment';
 
 function Question(props) {
@@ -10,6 +11,7 @@ function Question(props) {
     const [currectAnswer, setCurrectAnswer] = useState(0);
     const [curretCounter, setCurretCounter] = useState(0);
     const [message, SetMessage] = useState('');
+    let history = useNavigate();
 
     useEffect(() => {
 
@@ -77,56 +79,65 @@ function Question(props) {
             todayWords[controller].nextDate = new moment().add(1, "days").format('YYYY-MM-DD');
         }
 
+        if(controller === todayWords.length - 2){
+            localStorage.setItem('check', JSON.stringify(new moment().format('YYYY-MM-DD')));
+            setTimeout((() => {
+                history('/');
+            }), '2000');
+        }
+
        
     }
 
     return (
-        <div className='questionContainer'>
-
+        <>
             {controller === (todayWords.length - 1)
                     ?
-                    <div>
+                    <div className='result'>
                         <span style={{ color: 'green' }}>
-                            Currect Answers : {curretCounter}
+                            تعداد جواب های صحیح : {curretCounter}
                         </span><br />
                         <span style={{ color: 'red' }}>
-                            Wrong Answers : {todayWords.length - curretCounter}
+                            تعداد جواب های غلط : {todayWords.length - curretCounter}
                         </span><br />
                         <span style={{ color: 'white' }}>
-                            you answered around {((curretCounter / todayWords.length) * 100).toFixed(0)}% of the answers currectlly
+                            %نمره : {((curretCounter / todayWords.length) * 100).toFixed(0)}
                         </span>
                     </div>
                     : 
-                    <><h1>{controller === (todayWords.length - 1) ? ''
-                    : eWord}</h1><hr /><div className='choosebox'>
-                        {answers.map((answer, index) => {
-                            return <Fragment key={index}>
-                                <label className="labl">
-                                    <input type="radio" name="radioname" value={answer} />
-                                    <div onClick={() => {
-                                        if (index === currectAnswer) {
-                                            setCurretCounter(curretCounter + 1);
-                                            SetMessage('correct');
-                                        }
-                                        else {
-                                            SetMessage('wrong');
-                                        }
-                                        setTimeout((() => {
-                                            NOP('next');
-                                            checkQuestion(answer);
-                                            SetMessage('');
-                                        }), '500');
-                                    } }>
-                                        {controller === (todayWords.length - 1) ? '' : answer}
-                                    </div>
-                                </label>
-                            </Fragment>;
-                        })}
-                    </div><div className='messageStyle' style={{ color: 'white', fontSize: '30px' }}>
-                        {message}
-                    </div></>
+                    <div className='questionContainer'>
+                        <h1>{controller === (todayWords.length - 1) ? ''
+                        : eWord}</h1><hr /><div className='choosebox'>
+                            {answers.map((answer, index) => {
+                                return <Fragment key={index}>
+                                    <label className="labl">
+                                        <input type="radio" name="radioname" value={answer} />
+                                        <div onClick={() => {
+                                            if (index === currectAnswer) {
+                                                setCurretCounter(curretCounter + 1);
+                                                SetMessage('correct');
+                                            }
+                                            else {
+                                                SetMessage('wrong');
+                                            }
+                                            setTimeout((() => {
+                                                NOP('next');
+                                                checkQuestion(answer);
+                                                SetMessage('');
+                                            }), '500');
+                                        } }>
+                                            {controller === (todayWords.length - 1) ? '' : answer}
+                                        </div>
+                                    </label>
+                                </Fragment>;
+                            })}
+                        </div><div className='messageStyle' style={{ color: 'white', fontSize: '30px' }}>
+                            {message}
+                        </div>
+                    </div>
                 }
-        </div>
+            </>
+        
     );
 }
 
