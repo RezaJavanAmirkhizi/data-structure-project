@@ -4,8 +4,6 @@ import Question from './Question';
 
 const Exam = (props) => {
 
-    const [controller, setController] = useState(0);
-
     const[todayWords, setTodayWords] = useState([]);
 
     useLayoutEffect(() => {
@@ -37,7 +35,7 @@ const Exam = (props) => {
     return (
         <div>
             <div className="examContainer">
-                <Question todayWords={todayWords} controller={controller} setController={setController} />
+                <Question todayWords={todayWords}/>
             </div>
         </div>
     );
