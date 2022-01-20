@@ -9,7 +9,7 @@ import Learn from './components/Learn';
 
 function App(props) {
 
-  const[words, setWords] = useState(Words());
+  const[words, setWords] = useState(JSON.parse(localStorage.getItem('words')) === null ? Words() : JSON.parse(localStorage.getItem('words')));
 
 
   return (
@@ -17,7 +17,7 @@ function App(props) {
       <Routes>
         <Route exact path="/" element={<FirstPage words = {words} setWords={setWords} />}></Route>
         <Route exact path={"/secondpage"} element={<SecondPage/>}/>
-        <Route exact path={"/secondpage/exam"} element={<Exam words={words}/>}></Route>
+        <Route exact path={"/secondpage/exam"} element={<Exam words={words} />}></Route>
         <Route path='/secondpage/learn' element={<Learn words={words}/>}/>
       </Routes>
 
