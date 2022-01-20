@@ -8,15 +8,15 @@ function Question(props) {
     const [controller, setController] = useState(0);
     const [currectAnswer, setCurrectAnswer] = useState(0);
     const [curretCounter, setCurretCounter] = useState(0);
-    const [wrongCounter, setWrongCounter] = useState(0)
     const [message, SetMessage] = useState('')
 
     useEffect(() => {
 
         setEWord(todayWords[controller].english);
 
-        let currentNum = Math.floor(Math.random() * 4) + 1;
+        let currentNum = Math.floor(Math.random() * 4);
         let mistakeNum = Math.floor(Math.random() * 25) + 1; //random number between 1 and 26
+        setCurrectAnswer(currentNum)
 
         let value = []
         for (let i = mistakeNum; i < (mistakeNum + 3); i++) {
@@ -28,19 +28,23 @@ function Question(props) {
     }, [])
 
     useEffect(() => {
-        let currentNum = Math.floor(Math.random() * 4) + 1;
+
+        setEWord(todayWords[controller].english);
+
+        let currentNum = Math.floor(Math.random() * 4);
         let mistakeNum = Math.floor(Math.random() * 25) + 1; //random number between 1 and 26
 
         let value = []
         for (let i = mistakeNum; i < (mistakeNum + 3); i++) {
             value.push(todayWords[i].persian);
         }
+        setCurrectAnswer(currentNum)
 
         value.splice(currentNum, 0, todayWords[controller].persian);
         setAnswers(value)
+        console.log(currentNum);
 
-        setCurrectAnswer(currentNum)
-
+        
     }, [controller])
 
     const NOP = (type) => {
@@ -57,7 +61,7 @@ function Question(props) {
     return (
         <div className='questionContainer'>
             <h1>{controller === (todayWords.length - 1) ? ''
-            : eWord
+                : eWord
             }</h1>
             <hr />
             <div className='choosebox'>
@@ -66,18 +70,18 @@ function Question(props) {
                         <label className="labl">
                             <input type="radio" name="radioname" value={index} />
                             <div onClick={() => {
+                                console.log(currectAnswer);
                                 if (index === currectAnswer) {
                                     setCurretCounter(curretCounter + 1)
                                     SetMessage('correct')
                                 }
                                 else {
-                                    setWrongCounter(wrongCounter + 1)
                                     SetMessage('wrong')
                                 }
                                 setTimeout((() => {
                                     NOP('next')
                                     SetMessage('')
-                                }), '1000')
+                                }), '600')
                             }}>
                                 {
                                     controller === (todayWords.length - 1) ? ''
@@ -99,14 +103,14 @@ function Question(props) {
                 {controller === (todayWords.length - 1)
                     ?
                     <div>
-                        <span style={{color: 'green'}}>
+                        <span style={{ color: 'green' }}>
                             Currect Answers : {curretCounter}
                         </span><br />
-                        <span style={{color: 'red'}}>
-                            Wrong Answers : {wrongCounter}
+                        <span style={{ color: 'red' }}>
+                            Wrong Answers : {todayWords.length - curretCounter}
                         </span><br />
-                        <span style={{color : 'white'}}>
-                            you answered around {((curretCounter / (curretCounter + wrongCounter)) * 100).toFixed(0)}% of the answers currectlly
+                        <span style={{ color: 'white' }}>
+                            you answered around {((curretCounter / todayWords.length) * 100).toFixed(0)}% of the answers currectlly
                         </span>
                     </div>
                     : ''
