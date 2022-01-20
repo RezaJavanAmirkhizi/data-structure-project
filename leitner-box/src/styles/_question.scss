@@ -46,7 +46,7 @@
   position: absolute; /* Remove input from document flow */
 }
 
-.labl > input:checked + div {
+.labl > input:hover + div {
   /* (RADIO CHECKED) DIV STYLES */
   transition: ease 1s;
   background-color: #949fa6;
