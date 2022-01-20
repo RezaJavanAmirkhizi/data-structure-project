@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, {/* Fragment,*/ useEffect/*, useState */} from 'react';
 import { Link } from 'react-router-dom';
 
-const SecondPage = () => {
+const SecondPage = (props) => {
 
     return (
         <div className="container1">

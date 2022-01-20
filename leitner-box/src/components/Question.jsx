@@ -3,8 +3,9 @@ import moment from 'moment';
 
 function Question(props) {
 
+    const [today, setToday] = useState(moment().format('YYYY-MM-DD'))
     const [answers, setAnswers] = useState([]);
-    const [todayWords, setTodayWords] = useState(props.todayWords)
+    const [todayWords] = useState(props.todayWords)
     const [eWord, setEWord] = useState();
     const [controller, setController] = useState(0);
     const [currectAnswer, setCurrectAnswer] = useState(0);
@@ -12,8 +13,8 @@ function Question(props) {
     const [message, SetMessage] = useState('');
 
     useEffect(() => {
-
         setEWord(todayWords[controller].english);
+
 
         let currentNum = Math.floor(Math.random() * 4);
         let mistakeNum = Math.floor(Math.random() * 25) + 1; //random number between 1 and 26
@@ -38,14 +39,13 @@ function Question(props) {
         for (let i = mistakeNum; i < (mistakeNum + 3); i++) {
             value.push(todayWords[i].persian);
         }
-        setCurrectAnswer(currentNum)
 
+        setCurrectAnswer(currentNum)
 
         value.splice(currentNum, 0, todayWords[controller].persian);
         setAnswers(value);
-        setCurrectAnswer(currentNum);
 
-        if(controller === todayWords.length - 1){
+        if (controller === todayWords.length - 1) {
             props.changeWords(todayWords);
         }
 
@@ -58,7 +58,12 @@ function Question(props) {
         }
     }
 
+    const ExamMotherFucker = () => {
+        setToday(moment().add(1, "days").format('YYYY-MM-DD'))
+    }
+
     const checkQuestion = (question) => {
+
         if (question === answers[currectAnswer]) {
             if (todayWords[controller].level === 0) {
                 todayWords[controller].level++;
@@ -72,13 +77,10 @@ function Question(props) {
                 todayWords[controller].level++;
                 todayWords[controller].nextDate = new moment().add(15, "days").format('YYYY-MM-DD');
             }
-
         }
         else {
             todayWords[controller].nextDate = new moment().add(1, "days").format('YYYY-MM-DD');
         }
-
-
     }
 
     return (
@@ -93,7 +95,6 @@ function Question(props) {
                         <label className="labl">
                             <input type="radio" name="radioname" value={answer} />
                             <div onClick={() => {
-                                console.log(currectAnswer);
                                 if (index === currectAnswer) {
                                     setCurretCounter(curretCounter + 1)
                                     SetMessage('correct')
@@ -139,7 +140,6 @@ function Question(props) {
                     : ''
                 }
             </div>
-
         </div>
     );
 }

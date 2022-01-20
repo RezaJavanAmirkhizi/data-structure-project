@@ -1,13 +1,13 @@
 import '../src/styles/app.scss';
 import FirstPage from '../src/components/FirstPage'
 import { Route, Routes } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { /*useEffect,*/ useState } from 'react';
 import Words from '../src/data/words';
 import SecondPage from './components/SecondPage'
 import Exam from './components/Exam';
 import Learn from './components/Learn';
 
-function App() {
+function App(props) {
 
   const[words, setWords] = useState(Words());
 
