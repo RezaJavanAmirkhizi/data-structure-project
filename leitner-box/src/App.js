@@ -11,12 +11,13 @@ function App() {
 
   const[words, setWords] = useState(Words());
 
+
   return (
     <div className="pages">
       <Routes>
         <Route exact path="/" element={<FirstPage words = {words} setWords={setWords} />}></Route>
         <Route exact path={"/secondpage"} element={<SecondPage/>}/>
-        <Route exact path={"/secondpage/exam"} element={<Exam words= {words}/>}></Route>
+        <Route exact path={"/secondpage/exam"} element={<Exam words={words}/>}></Route>
         <Route path='/secondpage/learn' element={<Learn words={words}/>}/>
       </Routes>
 
