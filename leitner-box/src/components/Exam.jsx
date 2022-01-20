@@ -35,7 +35,7 @@ const Exam = (props) => {
     return (
         <div>
             <div className="examContainer">
-                <Question todayWords={todayWords}/>
+                <Question todayWords={todayWords} changeWords={setTodayWords} />
             </div>
         </div>
     );
