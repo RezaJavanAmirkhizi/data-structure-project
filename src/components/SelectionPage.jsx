@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 
-const SecondPage = (props) => {
+const SelectionPage = (props) => {
 
     const [check, setCheck] = useState(JSON.parse(localStorage.getItem('check')) === null ? null : JSON.parse(localStorage.getItem('check')));
 
@@ -15,9 +15,9 @@ const SecondPage = (props) => {
                     <p className="paragraph">آموزش روزانه 30 لغت انگلیسی به همراه ترجمه فارسی</p>
                     {
                         (check === null || check !== new moment().format('YYYY-MM-DD')) ?
-                        <Link className="start" to="/secondpage/learn" onClick={() => window.location.href = "/secondpage/learn".reload()}>شروع</Link>
-                        : 
-                        <p>.شما امروز در آموزش شرکت کرده اید</p>
+                            <Link className="start" to="/secondpage/learn" onClick={() => window.location.href = "/secondpage/learn".reload()}>شروع</Link>
+                            :
+                            <p>.شما امروز در آموزش شرکت کرده اید</p>
                     }
                 </div>
                 <div className="exam">
@@ -25,9 +25,9 @@ const SecondPage = (props) => {
                     <p className="paragraph">آزمون جهت اطمینان از یادگیری لغات به وسیله سوالات 4 گزینه ای</p>
                     {
                         (check === null || check !== new moment().format('YYYY-MM-DD')) ?
-                        <Link className="start" to="/secondpage/exam" onClick={() => window.location.href = "/secondpage/exam".reload()}>شروع</Link>
-                        : 
-                        <p>.شما امروز در آزمون شرکت کرده اید</p>
+                            <Link className="start" to="/secondpage/exam" onClick={() => window.location.href = "/secondpage/exam".reload()}>شروع</Link>
+                            :
+                            <p>.شما امروز در آزمون شرکت کرده اید</p>
                     }
                 </div>
             </div>
@@ -38,4 +38,4 @@ const SecondPage = (props) => {
 
 
 
-export default SecondPage;
+export default SelectionPage;
