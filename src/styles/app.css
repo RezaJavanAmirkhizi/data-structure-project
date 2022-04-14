@@ -1,0 +1,462 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap");
+/* Color Theme Swatches in Hex */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #363e40;
+}
+
+.container {
+  height: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 25px;
+  margin: 10rem auto;
+  padding: 3rem;
+}
+
+.container h1, .container p {
+  color: #F2F2F2;
+  font-family: 'Noto Naskh Arabic', serif;
+}
+
+.container h1 {
+  font-size: 45px;
+}
+
+.container p {
+  font-size: 25px;
+}
+
+.link {
+  text-decoration: none;
+  color: #F2F2F2;
+  font-family: 'Noto Naskh Arabic', serif;
+  font-size: 20px;
+  padding: 3px 70px;
+  border-radius: 20px;
+  outline: none;
+  border: 3px solid #949FA6;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: background ease .75s;
+  transition: background ease .75s;
+}
+
+.link:hover {
+  background-color: #949FA6;
+}
+
+.container1 {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+}
+
+.container1 p {
+  color: #ffffff;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 18px;
+}
+
+.start {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  padding: 3px 70px;
+  border-radius: 20px;
+  outline: none;
+  border: 3px solid #949fa6;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: background ease 0.75s;
+  transition: background ease 0.75s;
+}
+
+.start:hover {
+  background-color: #949fa6;
+}
+
+.container0 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.h1 {
+  text-align: center;
+  direction: rtl;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.paragraph {
+  font-size: 1rem;
+  color: #f2f2f2;
+  text-align: center;
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.education,
+.exam {
+  border: 3px solid #949fa6;
+  width: 450px;
+  height: 450px;
+  border-radius: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.title {
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  text-align: center;
+  margin: 10px 0px 0px;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.examContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.choiseContainer {
+  border: 5px solid #949fa6;
+  width: 600px;
+}
+
+h3 {
+  color: white;
+}
+
+.questionContainer {
+  border: 5px solid #949fa6;
+  border-radius: 10px;
+  display: inline-block;
+  width: 600px;
+  height: 100px;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.questionContainer h1 {
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 3rem;
+  margin-top: 20px;
+}
+
+.questionContainer hr {
+  color: #949fa6;
+  background-color: #949fa6;
+  height: 1px;
+  margin-bottom: 45px;
+}
+
+.choosebox {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.labl {
+  width: 220px;
+  border: 3px solid #949fa6;
+  height: 108px;
+  margin: 30px 30px;
+  line-height: 110px;
+  border-radius: 20px;
+}
+
+.labl div {
+  border-radius: 17px;
+  font-size: 2rem;
+  color: #fff;
+  direction: ltr;
+}
+
+.labl > input {
+  /* HIDE RADIO */
+  visibility: hidden;
+  /* Makes input not-clickable */
+  position: absolute;
+  /* Remove input from document flow */
+}
+
+.labl > input:hover + div {
+  /* (RADIO CHECKED) DIV STYLES */
+  -webkit-transition: ease 1s;
+  transition: ease 1s;
+  background-color: #949fa6;
+  border-radius: 17px;
+  color: #000;
+  margin: 1px -2px -18px -1px;
+  margin: -1px;
+}
+
+.labl > input:hover + div .labl {
+  background-color: #ffd6bb;
+}
+
+.buttonsDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.buttons {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  display: inline-block;
+  width: 90px;
+  line-height: 50px;
+  height: 50px;
+  margin: 40px 10px;
+  border-radius: 20px;
+  outline: none;
+  border: 3px solid #949fa6;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: background ease 0.75s;
+  transition: background ease 0.75s;
+}
+
+.buttons:hover {
+  background-color: #949fa6;
+}
+
+.result {
+  margin-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-self: center;
+}
+
+.result span {
+  font-size: 24px;
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.titles {
+  display: block;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  margin: 30px 280px;
+}
+
+.head {
+  color: #adffbf;
+}
+
+.head div {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  border: 1.5px solid #949fa6;
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.rows div {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  color: #f2f2f2;
+  border: 1.5px solid #949fa6;
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.rows .readStyle {
+  width: 33.4%;
+  text-decoration: none;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  padding: 3px 70px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1.5px solid #949fa6;
+  margin-left: 33.2%;
+}
+
+.rows .readStyle:hover {
+  background-color: #67ce8f;
+}
+
+@media only screen and (max-width: 1473px) {
+  .titles {
+    margin: 100px;
+  }
+}
+
+@media only screen and (max-width: 1113px) {
+  .titles {
+    margin: 80px;
+  }
+}
+
+@media only screen and (max-width: 1072px) {
+  .titles {
+    margin: 60px;
+  }
+}
+
+@media only screen and (max-width: 1035px) {
+  .titles {
+    margin: 50px;
+  }
+}
+
+@media only screen and (max-width: 1013px) {
+  .titles {
+    margin: 0px;
+  }
+}
+
+.buttonsPlace button {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  padding: 3px 70px;
+  border-radius: 20px;
+  outline: none;
+  border: 3px solid #949fa6;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: background ease 0.75s;
+  transition: background ease 0.75s;
+  margin-top: 100px;
+  margin-left: 39.5%;
+}
+
+.buttonsPlace button:hover {
+  background-color: #949fa6;
+}
+
+@media only screen and (max-width: 1350px) {
+  .buttonsPlace button {
+    margin-left: 38%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .buttonsPlace button {
+    margin-left: 36%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .buttonsPlace button {
+    margin-left: 33%;
+    margin-bottom: 3%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .buttonsPlace button {
+    margin-left: 0px;
+    margin-bottom: 3%;
+  }
+}
+
+.examPageSender {
+  margin-left: 33.2%;
+}
+
+.examPageSender button {
+  text-decoration: none;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  padding: 3px 70px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.examPageSender:hover {
+  background-color: #67a6ce;
+}
+/*# sourceMappingURL=app.css.map */
