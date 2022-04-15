@@ -121,14 +121,14 @@ export default function Exam3(props) {
                 counter.allCount === exam3W.length
                     ?
                     <div className='result'>
-                        <span>
+                        <span style={{color:'green'}}>
                             تعداد جواب های صحیح : {counter.correctCounter}
 
                         </span>
-                        <span>
+                        <span style={{color:'red'}}>
                             تعداد جواب های غلط : {counter.allCount - counter.correctCounter}
                         </span>
-                        <span>
+                        <span style={{color:'white'}}>
                             درصد : {((counter.correctCounter / counter.allCount) * 100).toFixed(0)} %
                         </span>
                     </div>

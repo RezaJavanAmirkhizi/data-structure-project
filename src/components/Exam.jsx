@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
 import moment from 'moment';
-import Question from './Question';
 import Exam1 from './Exam1';
 import Exam2 from './Exam2';
 import Exam3 from './Exam3';
@@ -8,7 +7,7 @@ import Exam3 from './Exam3';
 
 const Exam = (props) => {
 
-    const [todayWords, setTodayWords] = useState(props.words)
+    const todayWords = props.words
 
     const [examStuff] = useState({
         exam1Stuff: [],
@@ -20,7 +19,8 @@ const Exam = (props) => {
     const [exams, setExams] = useState({
         exam1: false,
         exam2: false,
-        exam3: false
+        exam3: false,
+        toggle: true
     })
 
     const [enableExamButtons, setEnableExamButtons] = useState({
@@ -92,12 +92,13 @@ const Exam = (props) => {
                 examStuff.remainedWordStuff.push(props.words[i])
             }
         }
+        console.log(todayWords);
     }, [])
 
     useEffect(() => {
 
         for (let i = 0; i < props.words.length; i++) {
-            for (let j = 0; j < todayWords.length; j++) { 
+            for (let j = 0; j < todayWords.length; j++) {
                 if (todayWords[j].id === props.words[i].id) {
                     props.words.splice(i, 1);
                 }
@@ -114,18 +115,6 @@ const Exam = (props) => {
         }
 
     }, [finished])
-
-    const examStateHandler = () => {
-        setExams({
-            exam1: false,
-            exam2: false,
-            exam3: false
-        })
-    }
-
-    const returnFalser = () => {
-        setEnableExamButtons(enableExamButtons => ({...enableExamButtons, return: false}))
-    }
 
 
     const checkAllowence = () => {
@@ -148,65 +137,73 @@ const Exam = (props) => {
     return (
 
         <div>
-            <div className="examContainer">
-                {/* <Question todayWords={todayWords} changeWords={setTodayWords} setFinished={setFinished} /> */}
-                <div aria-label='choiceContainer'>
-                    <button onClick={() => {
-                        setExams({
-                            exam1: true,
-                            exam2: false,
-                            exam3: false
-                        })
-                        setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
-                    }} disabled={enableExamButtons.exam1}>
-                        آزمون بخش اول کلمات
-                    </button>
-                    <button onClick={() => {
-                        setExams({
-                            exam1: false,
-                            exam2: true,
-                            exam3: false
-                        })
-                        setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
-                    }} disabled={enableExamButtons.exam2}>
-                        آزمون بخش دوم کلمات
-                    </button>
-                    <button onClick={() => {
-                        setExams({
-                            exam1: false,
-                            exam2: false,
-                            exam3: true
-                        })
-                        setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
-                    }} disabled={enableExamButtons.exam3}>
-                        آزمون بخش سوم کلمات
-                    </button>
-                </div>
-            </div>
-            <div>
-                {
-                    exams.exam1 ?
-                        <Exam1 exam1Words={examStuff.exam1Stuff} questionWords={todayWords} />
-                        : ''
-                }
-                {
-                    exams.exam2 ?
-                        <Exam2 exam2Words={examStuff.exam2Stuff} questionWords={todayWords} />
-                        : ''
-                }
-                {
-                    exams.exam3 ?
-                        <Exam3 exam3Words={examStuff.exam3Stuff} questionWords={todayWords} />
-                        : ''
-                }
-            </div>
+            {
+                exams.toggle ?
+                    <div className="examContainer">
+                        <div aria-label='choiceContainer'>
+                            <button onClick={() => {
+                                setExams({
+                                    exam1: true,
+                                    exam2: false,
+                                    exam3: false,
+                                    toggle:false
+                                })
+                                setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
+                            }} disabled={enableExamButtons.exam1}>
+                                آزمون بخش اول کلمات
+                            </button>
+                            <button onClick={() => {
+                                setExams({
+                                    exam1: false,
+                                    exam2: true,
+                                    exam3: false,
+                                    toggle: false
+                                })
+                                setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
+                            }} disabled={enableExamButtons.exam2}>
+                                آزمون بخش دوم کلمات
+                            </button>
+                            <button onClick={() => {
+                                setExams({
+                                    exam1: false,
+                                    exam2: false,
+                                    exam3: true,
+                                    toggle: false
+                                })
+                                setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
+                            }} disabled={enableExamButtons.exam3}>
+                                آزمون بخش سوم کلمات
+                            </button>
+                        </div>
+                    </div>
+                    :
+                    <div>
+                        {
+                            exams.exam1 ?
+                                <Exam1 exam1Words={examStuff.exam1Stuff} questionWords={todayWords} />
+                                : ''
+                        }
+                        {
+                            exams.exam2 ?
+                                <Exam2 exam2Words={examStuff.exam2Stuff} questionWords={todayWords} />
+                                : ''
+                        }
+                        {
+                            exams.exam3 ?
+                                <Exam3 exam3Words={examStuff.exam3Stuff} questionWords={todayWords} />
+                                : ''
+                        }
+                    </div>
+
+            }
             {
                 enableExamButtons.return ?
-                    <button onClick={() => {
+                    <button className='return' onClick={() => {
                         setExams({
                             exam1: false,
                             exam2: false,
-                            exam3: false
+                            exam3: false,
+                            toggle: true
                         })
                         setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: false }))
                         checkAllowence()
@@ -217,7 +214,7 @@ const Exam = (props) => {
             }
             <div>
                 <a href='/secondpage/learn'>
-                    <button>
+                    <button  className='learnSender'>
                         صفحه آموزش
                     </button>
                 </a>

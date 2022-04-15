@@ -54,7 +54,7 @@ export default function Exam1(props) {
     useEffect(() => {
 
         let correctNumber = Math.floor(Math.random() * 4)
-        let wrongNumbers = Math.floor(Math.random() * 25) + 1
+        let wrongNumbers = Math.floor(Math.random() * 25)
 
         let value = []
         for (let i = wrongNumbers; i < props.questionWords.length; i++) {
@@ -117,14 +117,14 @@ export default function Exam1(props) {
                 counter.allCount === exam1W.length
                     ?
                     <div className='result'>
-                        <span style={{color: 'green'}}>
+                        <span style={{ color: 'green' }}>
                             تعداد جواب های صحیح : {counter.correctCounter}
 
                         </span>
-                        <span style={{color: 'red'}}>
+                        <span style={{ color: 'red' }}>
                             تعداد جواب های غلط : {counter.allCount - counter.correctCounter}
                         </span>
-                        <span style={{color: 'white'}}>
+                        <span style={{ color: 'white' }}>
                             درصد : {((counter.correctCounter / counter.allCount) * 100).toFixed(0)} %
                         </span>
                     </div>

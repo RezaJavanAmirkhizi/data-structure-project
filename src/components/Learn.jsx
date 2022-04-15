@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import moment from 'moment';
 
 
