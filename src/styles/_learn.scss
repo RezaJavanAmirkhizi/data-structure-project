@@ -1,0 +1,134 @@
+.titles {
+    display: block;
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 20px;
+    margin: 30px 280px;
+}
+.head {
+    color: #adffbf;
+    div {
+        display: inline-block;
+        width: 33%;
+        text-align: center;
+        border: 1.5px solid #949fa6;
+        font-family: "Noto Naskh Arabic", serif;
+    }
+}
+.rows {
+    div {
+        display: inline-block;
+        width: 33%;
+        text-align: center;
+        color: #f2f2f2;
+        border: 1.5px solid #949fa6;
+        font-family: "Noto Naskh Arabic", serif;
+    }
+    .readStyle {
+        width: 33.4%;
+        text-decoration: none;
+        color: #f2f2f2;
+        font-family: "Noto Naskh Arabic", serif;
+        font-size: 20px;
+        padding: 3px 70px;
+        cursor: pointer;
+        background-color: transparent;
+        border: 1.5px solid #949fa6;
+        margin-left: 33.2%;
+        &:hover {
+            background-color: #67ce8f;
+        }
+    }
+}
+
+@media only screen and (max-width: 1473px) {
+    .titles {
+        margin: 100px;
+    }
+}
+@media only screen and (max-width: 1113px) {
+    .titles {
+        margin: 80px;
+    }
+}
+@media only screen and (max-width: 1072px) {
+    .titles {
+        margin: 60px;
+    }
+}
+@media only screen and (max-width: 1035px) {
+    .titles {
+        margin: 50px;
+    }
+}
+@media only screen and (max-width: 1013px) {
+    .titles {
+        margin: 0px;
+    }
+}
+
+.buttonsPlace {
+    button {
+        text-decoration: none;
+        color: #f2f2f2;
+        font-family: "Noto Naskh Arabic", serif;
+        font-size: 20px;
+        padding: 3px 70px;
+        border-radius: 20px;
+        outline: none;
+        border: 3px solid #949fa6;
+        cursor: pointer;
+        background-color: transparent;
+        transition: background ease 0.75s;
+        margin : {
+            top: 100px;
+            left: 39.5%;
+        }
+        &:hover {
+            background-color: #949fa6;
+        }
+    }
+
+    @media only screen and (max-width: 1350px) {
+        button {
+            margin-left: 38%;
+        }
+    }
+    @media only screen and (max-width: 1200px) {
+        button {
+            margin-left: 36%;
+        }
+    }
+    @media only screen and (max-width: 1000px) {
+        button {
+            margin : {
+                left: 33%;
+                bottom: 3%;
+            }
+        }
+    }
+    @media only screen and (max-width: 900px) {
+        button {
+            margin : {
+                left: 0px;
+                bottom: 3%;
+            }
+        }
+    }
+}
+
+.examPageSender {
+    margin-left: 33.2%;
+    button {
+        text-decoration: none;
+        color: #f2f2f2;
+        font-family: "Noto Naskh Arabic", serif;
+        font-size: 20px;
+        padding: 3px 70px;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+    }
+    &:hover {
+        background-color: #67a6ce;
+    }
+}
