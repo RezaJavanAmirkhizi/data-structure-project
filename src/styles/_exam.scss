@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 .allExamContainer {
     align-items: center;
 }
@@ -32,7 +36,7 @@
         color: #fff;
         direction: ltr;
         background-color: #949fa6;
-        transition: ease 1s;
+        transition: ease .7s;
         font-family: "Noto Naskh Arabic", serif;
     }
     button:hover {
@@ -43,20 +47,26 @@
 @media only screen and (max-width:720px){
     .questionContainer {
         width: 500px;
-
     }
 }
 
-.choosebox {
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+.examContainer {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    button {
+        font-size: large;
+        font-family: "Noto Naskh Arabic", serif;
+        width: 250px;
+        height: 80px;
+        border-radius: 9px;
+        margin: 18% 3%;
+    }
 }
 
 .return {
     width: 100px;
-    border: 3px solid #949fa6;
+    border: 3px solid black;
     height: 50px;
     margin: 10px 30px;
     border-radius: 20px;
@@ -65,7 +75,7 @@
     direction: ltr;
     background-color: #949fa6;
     font-family: "Noto Naskh Arabic", serif;
-
+    transition: all ease .5s;
 }
 
 .learnSender {
@@ -77,6 +87,15 @@
     font-size: 1rem;
     color: #fff;
     direction: ltr;
-    background-color: #949fa6;
+    background-color: black;
     font-family: "Noto Naskh Arabic", serif;
+    transition: all ease .5s;
+}
+
+.return:hover {
+    background-color: black;
+}
+
+.learnSender:hover {
+    background-color: #949fa6;
 }

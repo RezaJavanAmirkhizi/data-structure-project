@@ -38,7 +38,8 @@ const Exam = (props) => {
             setExams({
                 exam1: true,
                 exam2: false,
-                exam3: false
+                exam3: false,
+                toggle: false
             })
             setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
             localStorage.setItem('goExam1', null)
@@ -47,7 +48,8 @@ const Exam = (props) => {
             setExams({
                 exam1: false,
                 exam2: true,
-                exam3: false
+                exam3: false,
+                toggle: false
             })
             setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
             localStorage.setItem('goExam2', null)
@@ -56,7 +58,8 @@ const Exam = (props) => {
             setExams({
                 exam1: false,
                 exam2: false,
-                exam3: true
+                exam3: true,
+                toggle: false
             })
             setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, return: true }))
             localStorage.setItem('goExam3', null)
@@ -92,7 +95,6 @@ const Exam = (props) => {
                 examStuff.remainedWordStuff.push(props.words[i])
             }
         }
-        console.log(todayWords);
     }, [])
 
     useEffect(() => {
@@ -139,8 +141,8 @@ const Exam = (props) => {
         <div>
             {
                 exams.toggle ?
-                    <div className="examContainer">
-                        <div aria-label='choiceContainer'>
+                    <div>
+                        <div className="examContainer">
                             <button onClick={() => {
                                 setExams({
                                     exam1: true,
