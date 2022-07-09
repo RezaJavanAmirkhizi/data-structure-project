@@ -1,36 +1,11 @@
 import React, { useState, useLayoutEffect, useEffect } from 'react';
 import moment from 'moment';
-import Exam1 from './Exam1';
-import Exam2 from './Exam2';
-import Exam3 from './Exam3';
-
+import Question from './Question';
 
 const Exam = (props) => {
 
-    const todayWords = props.words
-
-    const [examStuff] = useState({
-        exam1Stuff: [],
-        exam2Stuff: [],
-        exam3Stuff: [],
-        remainedWordStuff: []
-    })
-
-    const [exams, setExams] = useState({
-        exam1: false,
-        exam2: false,
-        exam3: false,
-        toggle: true
-    })
-
-    const [enableExamButtons, setEnableExamButtons] = useState({
-        exam1: false,
-        exam2: true,
-        exam3: true,
-        return: false,
-    })
-
-    const [finished, setFinished] = useState(false);
+    const[todayWords, setTodayWords] = useState([]);
+    const[finished, setFinished] = useState(false);
 
     useLayoutEffect(() => {
 
@@ -69,75 +44,50 @@ const Exam = (props) => {
 
         const nullWords = [];
 
-        if (nullWords.length === 0) {
-            for (let i = 0; i < props.words.length; i++) {
-                if (props.words[i].nextDate === null) {
-                    nullWords.push(props.words[i]);
+
+        while (count < 30) {
+            if (nullWords.length === 0) {
+                for (let i = 0; i < props.words.length; i++) {
+                    if (props.words[i].nextDate === null) {
+                        nullWords.push(props.words[i]);
+                    }
                 }
             }
+            setTodayWords([...todayWords, todayWords.push(nullWords.shift())]);
+            count++;
         }
-
-        for (let i = 0; i < 10; i++) {
-            examStuff.exam1Stuff.push(nullWords.shift())
-        }
-        for (let i = 0; i < 10; i++) {
-            examStuff.exam2Stuff.push(nullWords.shift())
-        }
-        for (let i = 0; i < 10; i++) {
-            examStuff.exam3Stuff.push(nullWords.shift())
-        }
-        console.log(examStuff);
-
         const today = moment().format("YYYY-MM-DD");
 
         for (let i = 0; i < props.words.length; i++) {
             if (today >= props.words[i].nextDate) {
-                examStuff.remainedWordStuff.push(props.words[i])
+                setTodayWords([...todayWords, todayWords.push(props.words[i])]);
             }
         }
     }, [])
 
     useEffect(() => {
-
+        
         for (let i = 0; i < props.words.length; i++) {
-            for (let j = 0; j < todayWords.length; j++) {
-                if (todayWords[j].id === props.words[i].id) {
+            for (let j = 0; j < todayWords.length; j++){
+                if(todayWords[j].id === props.words[i].id){
                     props.words.splice(i, 1);
                 }
             }
         }
-        for (let i = 0; i < todayWords.length; i++) {
-            if (finished === true) {
+        for (let i = 0; i < todayWords.length; i++){
+            if(finished === true){
                 props.words.push(todayWords[i]);
             }
         }
-        if (finished === true) {
+
+        if(finished === true){
             localStorage.setItem('words', JSON.stringify(props.words));
-            localStorage.setItem('allowence', null)
+            console.log('set');
         }
 
     }, [finished])
 
-
-    const checkAllowence = () => {
-
-        let allow = JSON.parse(localStorage.getItem('allowence'))
-        if ((allow !== null) && (typeof (allow) !== String)) {
-            if (allow[1]) {
-                setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, exam2: false, exam3: false }))
-            }
-            else if (allow[0]) {
-                setEnableExamButtons(enableExamButtons => ({ ...enableExamButtons, exam2: false }))
-
-            }
-            else if (allow[0] === '1') {
-                setFinished(true)
-            }
-        }
-    }
-
     return (
-
         <div>
             {
                 exams.toggle ?
@@ -223,7 +173,7 @@ const Exam = (props) => {
             </div>
         </div>
     );
-
+    
 }
 
 export default Exam;
