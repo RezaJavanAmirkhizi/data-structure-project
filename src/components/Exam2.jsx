@@ -163,9 +163,9 @@ export default function Exam2(props) {
                                 })
                             }
                         </div>
-                        <div style={{ color: message === 'درست' ? 'green' : 'red' }}>
+                        <h3 style={{ color: message === 'درست' ? 'green' : 'red' }}>
                             {message}
-                        </div>
+                        </h3>
                     </div>
             }
         </div>

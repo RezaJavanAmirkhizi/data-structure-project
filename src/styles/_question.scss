@@ -1,76 +1,97 @@
+.questionContainer {
+  border: 5px solid #949fa6;
+  border-radius: 10px;
+  display: inline-block;
+  width: 600px;
+  height: 600px;
+  text-align: center;
+  margin: 20px auto;
+  h1 {
+    color: #f2f2f2;
+    font-family: "Noto Naskh Arabic", serif;
+    font-size: 3rem;
+    margin-top: 20px;
+  }
+  hr {
+    color: #949fa6;
+    background-color: #949fa6;
+    height: 1px;
+    margin-bottom: 45px;
+  }
+}
 .choosebox {
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+  display: inline-flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
 }
 .labl {
-    width: 220px;
-    border: 3px solid #949fa6;
-    height: 108px;
-    margin: 30px 30px;
-    line-height: 110px;
-    border-radius: 20px;
+  width: 220px;
+  border: 3px solid #949fa6;
+  height: 108px;
+  margin: 30px 30px;
+  line-height: 110px;
+  border-radius: 20px;
 
-    div {
-        border-radius: 17px;
-        font-size: 2rem;
-        color: #fff;
-        direction: ltr;
-    }
+  div {
+    border-radius: 17px;
+    font-size: 2rem;
+    color: #fff;
+    direction: ltr;
+  }
 }
 .labl > input {
-    /* HIDE RADIO */
-    visibility: hidden; /* Makes input not-clickable */
-    position: absolute; /* Remove input from document flow */
+  /* HIDE RADIO */
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
 }
 
 .labl > input:hover + div {
-    /* (RADIO CHECKED) DIV STYLES */
-    transition: ease 1s;
-    background-color: #949fa6;
-    border-radius: 17px;
-    color: #000;
-    margin: 1px -2px -18px -1px;
-    margin: -1px;
-    .labl {
-        background-color: #ffd6bb;
-    }
+  /* (RADIO CHECKED) DIV STYLES */
+  transition: ease 1s;
+  background-color: #949fa6;
+  border-radius: 17px;
+  color: #000;
+  margin: 1px -2px -18px -1px;
+  margin: -1px;
+  .labl {
+    background-color: #ffd6bb;
+  }
 }
 .buttonsDiv {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .buttons {
-    text-decoration: none;
-    color: #f2f2f2;
-    font-family: "Noto Naskh Arabic", serif;
-    font-size: 20px;
-    display: inline-block;
-    width: 90px;
-    line-height: 50px;
-    height: 50px;
-    margin: 40px 10px;
-    border-radius: 20px;
-    outline: none;
-    border: 3px solid #949fa6;
-    cursor: pointer;
-    background-color: transparent;
-    transition: background ease 0.75s;
-    &:hover {
-        background-color: #949fa6;
-    }
+  text-decoration: none;
+  color: #f2f2f2;
+  font-family: "Noto Naskh Arabic", serif;
+  font-size: 20px;
+  display: inline-block;
+  width: 90px;
+  line-height: 50px;
+  height: 50px;
+  margin: 40px 10px;
+  border-radius: 20px;
+  outline: none;
+  border: 3px solid #949fa6;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background ease 0.75s;
+  &:hover {
+    background-color: #949fa6;
+  }
 }
 
-.result {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-self: center;
+.result{
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
 
-    span {
-        font-size: 24px;
-        font-family: "Noto Naskh Arabic", serif;
-    }
+  span{
+    font-size: 24px;
+    font-family: "Noto Naskh Arabic", serif;
+  }
 }
